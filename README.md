@@ -275,8 +275,8 @@ olist-ecommerce-analytics/
 ├── screenshots/
 │   ├── executive-overview.png             # Page 1 preview image
 │   ├── customer-product.png               # Page 2 preview image
-│   ├── delivery-satisfaction.png          # Page 3 preview image
-│   └── seller-analysis.png                # Page 4 preview image
+│   ├── delivery-customer satisfaction.png # Page 3 preview image
+│   └── seller.png                         # Page 4 preview image
 │
 └── documentation/
     └── data-model.png                     # Star Schema architecture diagram
