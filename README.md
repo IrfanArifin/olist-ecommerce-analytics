@@ -24,93 +24,98 @@
 
 ## 🛠️ Project Overview
 
-This project analyzes the **Olist Brazilian E-Commerce Dataset** to evaluate commercial performance, customer purchasing behavior, product category dynamics, logistics efficiency, customer satisfaction, and seller ecosystem health.
+This project analyzes the **Olist Brazilian E-Commerce Dataset** to evaluate sales performance, customer purchasing behavior, product category dynamics, logistics efficiency, customer satisfaction, and seller ecosystem health.
 
-The project demonstrates a complete, production-grade **Data Analytics Workflow**—transitioning from data quality validation and analytical querying in **PostgreSQL** to data modeling and interactive business intelligence dashboard development in **Power BI**.
+The project covers a complete, end-to-end **Data Analytics Workflow**—starting from raw data quality validation and SQL querying in **PostgreSQL** to analytical data modeling and interactive dashboard development in **Power BI**.
 
-The primary objective is to translate ~100,000 raw transactional records into actionable, data-backed strategic recommendations for key business stakeholders.
+The main objective is to transform raw e-commerce data into actionable, data-driven business insights that support strategic decision-making across sales, marketing, logistics, product management, and seller operations.
 
 ---
 
 ## ❓ Business Questions Addressed
 
-The analysis addresses **26 core business questions (Q1–Q26)** categorized into 5 critical operational domains:
+This project systematically addresses key commercial questions across 5 core operational domains:
 
 <details>
 <summary><b>1. Sales & Revenue Performance</b></summary>
 
-* How much total revenue was generated across the platform?
-* How does revenue fluctuate over time (monthly/quarterly trends)?
-* How many orders were placed, and what is the platform's Average Order Value (AOV)?
+* How much revenue was generated across the platform?
+* How does revenue change over time?
+* How many orders were placed?
+* What is the Average Order Value (AOV)?
 * Which Brazilian states generate the highest revenue?
 </details>
 
 <details>
 <summary><b>2. Customer Behavior & Retention</b></summary>
 
-* How many unique customers are registered on the platform?
+* How many unique customers are there?
 * What is the customer repeat purchase rate?
-* What is the average revenue generated per customer?
+* What is the average revenue per customer?
 * Who are the highest-value customers?
-* Which states hold the highest concentration of customers?
+* Which states have the most customers?
 </details>
 
 <details>
-<summary><b>3. Product Category Dynamics</b></summary>
+<summary><b>3. Product Category Performance</b></summary>
 
-* Which product categories generate the highest revenue?
-* Which product categories drive the highest sales volume?
-* What are the top-performing individual products by revenue and volume?
-* Which categories appear most frequently in order baskets?
+* Which product categories generate the most revenue?
+* Which products have the highest sales volume?
+* Which products generate the highest revenue?
+* Which categories appear in the most orders?
 </details>
 
 <details>
-<summary><b>4. Delivery & Customer Satisfaction</b></summary>
+<summary><b>4. Delivery Performance & Customer Satisfaction</b></summary>
 
-* What is the average order delivery lead time across Brazil?
-* What percentage of orders suffer from late delivery?
-* Which Brazilian states experience the highest late-delivery rates?
-* How severely does late delivery impact customer review scores?
-* What is the overall distribution of review scores across product categories?
+* What is the average delivery time?
+* What percentage of orders are delivered late?
+* Which state has the highest late-delivery rate?
+* Does late delivery affect customer reviews?
+* How are review scores distributed?
+* Which categories receive the best customer ratings?
 </details>
 
 <details>
 <summary><b>5. Seller Ecosystem & Supply Health</b></summary>
 
-* How many total and active sellers operate on Olist?
-* What is the average revenue generated per active seller?
-* How has active seller growth evolved relative to order growth over time?
-* Who are the top-performing sellers on the platform?
-* How are sellers geographically distributed, and how do their rating tiers perform?
+* How many sellers are there?
+* What is the average revenue per active seller?
+* How does the number of active sellers change over time?
+* Which sellers generate the most revenue?
+* Which states have the most sellers?
+* How are sellers distributed by rating tier?
 </details>
 
 ---
 
 ## 🧰 Tools & Technologies
 
-* **PostgreSQL & pgAdmin 4**: Relational database storage, data quality checks, data cleaning, complex aggregation queries (CTE, Window Functions, Joins), and analytical view creation.
-* **Power BI Desktop**: Data transformation (Power Query), Star Schema data modeling, DAX measure creation, and interactive visual dashboard development.
-* **DAX (Data Analysis Expressions)**: Custom time-intelligence metrics, KPI cards, dynamic filters, and performance aggregations.
-* **Git & GitHub**: Project documentation, query version control, and portfolio presentation.
+* **PostgreSQL** — Relational database management, data quality checking, and complex SQL analysis
+* **pgAdmin 4** — Database administration and query execution
+* **Power BI Desktop** — Data modeling, DAX measure creation, interactive visualization, and dashboard design
+* **DAX (Data Analysis Expressions)** — Advanced dynamic measures, time intelligence, and aggregation logic
+* **Git & GitHub** — Version control, repository management, and project documentation
 
 ---
 
 ## 📁 Dataset Architecture
 
-The analysis utilizes the **Olist Brazilian E-Commerce Public Dataset** sourced from Kaggle. It contains real commercial data of ~100,000 orders placed between 2016 and 2018 across marketplaces in Brazil.
+The project utilizes the **Olist Brazilian E-Commerce Public Dataset** sourced from Kaggle. 
 
-The raw database consists of **9 relational tables**:
-1. `olist_customers_dataset`
-2. `olist_geolocation_dataset`
-3. `olist_order_items_dataset`
-4. `olist_order_payments_dataset`
-5. `olist_order_reviews_dataset`
-6. `olist_orders_dataset`
-7. `olist_products_dataset`
-8. `olist_sellers_dataset`
-9. `product_category_name_translation`
+The dataset contains approximately **100,000 anonymized orders** placed on the marketplace between 2016 and 2018 across Brazil. It consists of **9 relational tables**:
 
-> **Note:** Raw CSV datasets are excluded from this repository due to file size constraints. You can access the official dataset here: [Olist Brazilian E-Commerce Dataset on Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
+* `customers`
+* `geolocation`
+* `order_items`
+* `order_payments`
+* `order_reviews`
+* `orders`
+* `products`
+* `sellers`
+* `product_category_name_translation`
+
+> **Note:** Raw CSV datasets are not stored directly in this repository to keep the repository lightweight. You can download the official dataset directly from [Kaggle — Olist Brazilian E-Commerce Public Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
 
 ---
 
@@ -142,6 +147,9 @@ Interactive Dashboard & DAX Development
              │
              ▼
 Business Insights & Strategic Recommendations
+```
+
+---
 
 ## 📐 Data Modeling (Star Schema)
 
@@ -149,11 +157,13 @@ Rather than directly importing 9 unoptimized relational tables into Power BI, an
 
 <img width="731" height="578" alt="image" src="https://github.com/user-attachments/assets/a8096fea-e832-460a-a554-573c7f7ea993" />
 
-* **`Fact_Sales`**: Central transactional fact table containing order items, item prices, freight costs, payment values, delivery performance metrics, and review scores.
-* **`Dim_Customers`**: Customer attributes, unique IDs, and geographic locations (city, state).
-* **`Dim_Products`**: Product IDs, translated product categories, and physical measurements.
-* **`Dim_Sellers`**: Seller IDs, locations, and historical performance tiers.
-* **`Dim_Date`**: Comprehensive calendar table enabling seamless time-intelligence DAX calculations.
+* **`vw_fact_sales`**: Central transactional fact table containing order items, item prices, freight costs, payment values, delivery performance metrics, and review scores.
+* **`vw_dim_customers`**: Customer attributes, unique IDs, and geographic locations (city, state).
+* **`vw_dim_products`**: Product IDs, translated product categories, and physical measurements.
+* **`vw_dim_sellers`**: Seller IDs, locations, and historical performance tiers.
+* **`vw_dim_date`**: Comprehensive calendar table enabling seamless time-intelligence DAX calculations.
+
+---
 
 ## 💻 Interactive Power BI Dashboard
 
@@ -162,43 +172,34 @@ The dashboard consists of 4 specialized analytical pages:
 ### Page 1 — Executive Overview
 High-level executive summary tracking platform health and top-line commercial metrics.
 * **Key Focus**: Total Revenue, Total Orders, Total Unique Customers, Average Order Value (AOV), Average Review Score, Revenue Trends over Time, and Revenue Breakdown by State.
-* **Preview**: `screenshots/executive-overview.png`
 
 <img width="1432" height="805" alt="image" src="https://github.com/user-attachments/assets/3d0fdb14-90e6-4616-a34f-cd093662c4eb" />
-
 
 ---
 
 ### Page 2 — Customer & Product
 Deep dive into customer demographics, retention characteristics, and product category drivers.
 * **Key Focus**: Customer Geographic Distribution, Repeat Purchase Rate, Customer Spend Segments, Top Categories by Revenue vs. Volume, and Basket Analysis.
-* **Preview**: `screenshots/customer-product.png`
 
 <img width="1431" height="805" alt="image" src="https://github.com/user-attachments/assets/c9369da5-8fc7-4c23-b3d1-187c3625cd61" />
 
-
 ---
 
-### Page 3 — Seller Ecosystem Health
+### Page 3 — Seller
 Analysis of marketplace seller supply, productivity, and regional density.
 * **Key Focus**: Total Sellers, Active Seller Growth, Revenue per Active Seller, Top Performing Sellers, Seller Geographical Density, and Seller Rating Tier Breakdown.
-* **Preview**: `screenshots/seller-analysis.png`
 
 <img width="1431" height="802" alt="image" src="https://github.com/user-attachments/assets/bc19d4ca-e7aa-4174-9222-b046a6be8e53" />
 
 ---
 
-### Page 4 — Delivery & Customer Satisfaction Performance
+### Page 4 — Delivery & Customer Satisfaction
 Operational analysis evaluating supply chain efficiency and its direct impact on customer feedback.
 * **Key Focus**: Average Lead Time (Days), Late Delivery Rate (%), Regional Delivery Bottlenecks, Review Score Comparison (On-Time vs. Late Deliveries), and Category Satisfaction Distribution.
-* **Preview**: `screenshots/delivery-satisfaction.png`
 
 <img width="1432" height="798" alt="image" src="https://github.com/user-attachments/assets/063e6638-46b3-42c5-b303-f9a957866edf" />
 
-
 ---
-
-
 
 ## 💡 Key Business Insights
 
@@ -249,15 +250,14 @@ Operational analysis evaluating supply chain efficiency and its direct impact on
    * Run targeted marketing campaigns to increase customer penetration beyond SP, RJ, and MG.
    * Offer regional freight subsidies to incentivize cross-state purchasing.
 
+---
+
 ## 📂 Repository Structure
 
 ```text
 olist-ecommerce-analytics/
 │
 ├── README.md                              # Main portfolio documentation
-│
-├── data/
-│   └── README.md                          # Dataset details and download source link
 │
 ├── sql/
 │   ├── 01_data_quality.sql                # Data cleaning and integrity checks
@@ -280,8 +280,11 @@ olist-ecommerce-analytics/
 │
 └── documentation/
     └── data-model.png                     # Star Schema architecture diagram
+```
 
-    ## 🚀 How to Reproduce
+---
+
+## 🚀 How to Reproduce
 
 1. **Database Setup**:
    * Download the dataset from [Kaggle](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce).
